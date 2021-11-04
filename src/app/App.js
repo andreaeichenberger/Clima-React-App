@@ -1,9 +1,17 @@
 import React, { Component } from "react";
 
+import WeatherInfo from "./components/WeatherInfo";
+
 class App extends Component {
     render() {
         return (
-            <h1>Hello World</h1>
+            <div className= "container p-4">
+                <div className= "row">
+                    <div className= "col-md-6">
+                        <WeatherInfo/>
+                    </div>
+                </div>
+            </div>
         )
     }
 }
