@@ -3,14 +3,22 @@ import React, { Component } from "react";
 import WeatherInfo from "./components/WeatherInfo";
 import WeatherForm from "./components/WeatherForm";
 
+import { WEATHER_KEY } from "./keys";
+
 class App extends Component {
 
-    getWeather = e => {
+    getWeather = async e => {
+        e.preventDefault();
+
         const { city, country } = e.target.elements;
         const cityValue = city.value;
         const countryValue = country.value;
 
-        e.preventDefault();
+        const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${WEATHER_KEY}`;
+        const response = await fetch(API_URL);
+        const data = await response.json();
+
+        console.log(data)
     }
 
     render() {
